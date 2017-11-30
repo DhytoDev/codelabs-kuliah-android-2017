@@ -3,6 +3,7 @@ package com.dhytodev.activitylifecycle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mLifecycleStatus = (TextView) findViewById(R.id.tv_lifecycle_events_display);
+
+        logAndAppend(ON_CREATE);
     }
 
     @Override
@@ -66,5 +69,9 @@ public class MainActivity extends AppCompatActivity {
     private void logAndAppend(String lifecycleStatus) {
         Log.d(TAG, "Lifecycle Event: " + lifecycleStatus);
         mLifecycleStatus.append(lifecycleStatus + "\n");
+    }
+
+    public void resetLifecycleDisplay(View view) {
+        mLifecycleStatus.setText("Lifecycle callbacks:\n");
     }
 }
