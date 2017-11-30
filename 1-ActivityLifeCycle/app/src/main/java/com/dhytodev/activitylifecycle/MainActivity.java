@@ -1,5 +1,6 @@
 package com.dhytodev.activitylifecycle;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -73,5 +74,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void resetLifecycleDisplay(View view) {
         mLifecycleStatus.setText("Lifecycle callbacks:\n");
+    }
+
+    public void navToDetailActivity(View view) {
+        Intent i = new Intent(MainActivity.this, DetailActivity.class);
+        startActivity(i);
     }
 }
